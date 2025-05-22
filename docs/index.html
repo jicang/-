@@ -21,28 +21,7 @@
 
             if (userAgent.indexOf('android') > -1) {
                 // Android 设备，检测手机品牌
-                if (userAgent.indexOf('huawei') > -1 || userAgent.indexOf('honor') > -1) {
-                    // 华为或荣耀应用市场
-                    appStoreUrl = `appmarket://details?id=${packageName}`;
-                } else if (userAgent.indexOf('xiaomi') > -1) {
-                    // 尝试使用通用协议跳转小米应用商店
-                    appStoreUrl = `market://details?id=${packageName}`;
-                } else if (userAgent.indexOf('oppo') > -1) {
-                    // OPPO 软件商店
-                    appStoreUrl = `oppomarket://details?id=${packageName}`;
-                } else if (userAgent.indexOf('vivo') > -1) {
-                    // VIVO 应用商店
-                    appStoreUrl = `vivomarket://details?id=${packageName}`;
-                } else if (userAgent.indexOf('samsung') > -1) {
-                    // 三星应用商店
-                    appStoreUrl = `samsungapps://ProductDetail/${packageName}`;
-                } else if (userAgent.indexOf('meizu') > -1) {
-                    // 魅族应用商店
-                    appStoreUrl = `mstore://details?id=${packageName}`;
-                } else if (userAgent.indexOf('oneplus') > -1) {
-                    // 一加应用商店
-                    appStoreUrl = `oneplusstore://details?id=${packageName}`;
-                } else {
+               
                     // 默认尝试打开已安装的应用市场
                     appStoreUrl = `market://details?id=${packageName}`;
                     try {
@@ -52,7 +31,7 @@
                         // 若失败，跳转至 Google Play
                         appStoreUrl = `https://play.google.com/store/apps/details?id=${packageName}`;
                     }
-                }
+                
                 window.location.href = appStoreUrl;
             } else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipad') > -1) {
                 // iOS 设备，跳转到 App Store
