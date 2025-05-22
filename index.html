@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>应用下载跳转</title>
+    <style>
+        /* 可以添加一些样式来调整图片的显示 */
+        img {
+            display: block;
+            margin: 0 auto; /* 图片居中显示 */
+            max-width: 100%; /* 图片宽度不超过容器宽度 */
+            height: auto; /* 保持图片比例 */
+        }
+    </style>
+    <script>
+        function detectOSAndBrand() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            let appStoreUrl;
+            const packageName = 'com.example.androidapp'; // 替换为你的应用包名
+
+            if (userAgent.indexOf('android') > -1) {
+                // Android 设备，检测手机品牌
+                if (userAgent.indexOf('huawei') > -1 || userAgent.indexOf('honor') > -1) {
+                    // 华为或荣耀应用市场
+                    appStoreUrl = `appmarket://details?id=${packageName}`;
+                } else if (userAgent.indexOf('xiaomi') > -1) {
+                    // 尝试使用通用协议跳转小米应用商店
+                    appStoreUrl = `market://details?id=${packageName}`;
+                } else if (userAgent.indexOf('oppo') > -1) {
+                    // OPPO 软件商店
+                    appStoreUrl = `oppomarket://details?id=${packageName}`;
+                } else if (userAgent.indexOf('vivo') > -1) {
+                    // VIVO 应用商店
+                    appStoreUrl = `vivomarket://details?id=${packageName}`;
+                } else if (userAgent.indexOf('samsung') > -1) {
+                    // 三星应用商店
+                    appStoreUrl = `samsungapps://ProductDetail/${packageName}`;
+                } else if (userAgent.indexOf('meizu') > -1) {
+                    // 魅族应用商店
+                    appStoreUrl = `mstore://details?id=${packageName}`;
+                } else if (userAgent.indexOf('oneplus') > -1) {
+                    // 一加应用商店
+                    appStoreUrl = `oneplusstore://details?id=${packageName}`;
+                } else {
+                    // 默认尝试打开已安装的应用市场
+                    appStoreUrl = `market://details?id=${packageName}`;
+                    try {
+                        // 尝试启动应用市场
+                        window.location.href = appStoreUrl;
+                    } catch (e) {
+                        // 若失败，跳转至 Google Play
+                        appStoreUrl = `https://play.google.com/store/apps/details?id=${packageName}`;
+                    }
+                }
+                window.location.href = appStoreUrl;
+            } else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipad') > -1) {
+                // iOS 设备，跳转到 App Store
+                appStoreUrl = 'https://apps.apple.com/cn/app/id1234567890';
+                window.location.href = appStoreUrl;
+            } else {
+                // 其他设备，可提示用户在手机上访问
+                alert('请在手机上访问此页面进行 App 下载。');
+                return;
+            }
+        }
+
+        // 页面加载完成后执行检测和跳转
+        window.onload = detectOSAndBrand;
+    </script>
+</head>
+<body>
+    <!-- 添加本地图片 -->
+    <img src="img/1.png" alt="下载横幅">
+    <!-- 可以添加一些提示信息，当脚本无法执行时显示 -->
+    <p>如果页面没有自动跳转，请手动在手机应用市场搜索您要下载的 App。</p>
+</body>
+</html>
