@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>应用下载跳转</title>
-    <script src="https://cdn.jsdelivr.net/npm/@skillnull/device-js@2.1.8/dist/device.js"></script>
+   <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
     <script>
         function detectOSAndBrand() {
             const userAgent = navigator.userAgent.toLowerCase();
             let appStoreUrl;
-             const deviceInfo = device.manufacturer();
+          const device = require("current-device").default;
             const targetUrl = 'https://m.malink.cn/s/muQryi';
-
+            const deviceInfo=device.mobile();
             if (userAgent.indexOf('android') > -1) {
                  alert(`${deviceInfo}`);
                 // Android 设备，检测手机品牌
