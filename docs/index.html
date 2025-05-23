@@ -10,6 +10,16 @@
 
 
     <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            // 检查 THISDEVICE 对象是否存在
+            if (typeof THISDEVICE !== 'undefined') {
+                const os=THISDEVICE.device_brand;
+             const model=THISDEVICE.device_model;
+                 alert(`设备信息${os} ${model} ${phone}`);
+            } else {
+                $('#result').text('未找到 THISDEVICE 对象');
+            }
+        });
         function detectOSAndBrand() {
             const userAgent = navigator.userAgent.toLowerCase();
             let appStoreUrl;
@@ -49,7 +59,7 @@
         }
 
         // 页面加载完成后执行检测和跳转
-        window.onload = detectOSAndBrand;
+       // window.onload = detectOSAndBrand;
     </script>
 </head>
 <body>
