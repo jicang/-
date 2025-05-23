@@ -12,15 +12,15 @@
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             // 检查 THISDEVICE 对象是否存在
-            
+             const userAgent = navigator.userAgent.toLowerCase();
             if (typeof THISDEVICE !== 'undefined') {
                  const os=THISDEVICE.device_brand;
              const model=THISDEVICE.device_model;
-                 alert(`设备信息${os} ${model}`);
+                 alert(`设备信息${os} ${model} ${userAgent}`);
             } else {
                 $('#result').text('未找到 THISDEVICE 对象');
             }
-             const userAgent = navigator.userAgent.toLowerCase();
+            
             if (userAgent.indexOf('android') > -1) {
                     const osName=THISDEVICE.device_brand;
            
