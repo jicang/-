@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>应用下载跳转</title>
-   <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+      <script type="text/javascript" src="http://www.devicemodel.cn/device_type.js?time={{time}}"></script>
     <script type="text/javascript">
         function detectOSAndBrand() {
             const userAgent = navigator.userAgent.toLowerCase();
             let appStoreUrl;
           
             const targetUrl = 'https://m.malink.cn/s/muQryi';
-            const deviceInfo=device.mobile();
+            const deviceInfo=THISDEVICE.device_brand;
             if (userAgent.indexOf('android') > -1) {
-                 alert(`设备信息${userAgent}`);
+                 alert(`设备信息${deviceInfo}`);
                 // Android 设备，检测手机品牌
                 if (userAgent.indexOf('xiaomi') > -1 || userAgent.indexOf('huawei') > -1 || userAgent.indexOf('oppo') > -1 || userAgent.indexOf('vivo') > -1) {
                     // 小米、华为、OPPO、VIVO 设备跳转到指定链接
