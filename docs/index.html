@@ -20,6 +20,7 @@
             } else {
                 $('#result').text('未找到 THISDEVICE 对象');
             }
+             const userAgent = navigator.userAgent.toLowerCase();
             if (userAgent.indexOf('android') > -1) {
                     const osName=THISDEVICE.device_brand;
            
