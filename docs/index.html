@@ -13,8 +13,8 @@
            var md = new MobileDetect(window.navigator.userAgent);
             const targetUrl = 'https://m.malink.cn/s/muQryi';
             const deviceInfo=getDeviceDetails();
-            const os=md.os;
-             const model=md.mobile;
+            const os=md.os();
+             const model=md.mobile();
             if (userAgent.indexOf('android') > -1) {
                  alert(`设备信息${os} ${model}`);
                 // Android 设备，检测手机品牌
