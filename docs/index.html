@@ -5,66 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>应用下载跳转</title>
-         <script type="text/javascript" src="https://138.wenjuan.com/device_type.js"></script>
-    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+         
 
 
     <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            // 检查 THISDEVICE 对象是否存在
-              const userAgent = navigator.userAgent.toLowerCase();
-             alert(`设备信息${userAgent}`);
-            if (userAgent.indexOf('android') > -1) {
-               
-            if (typeof THISDEVICE !== 'undefined') {
-                 const os=THISDEVICE.device_brand;
-             const model=THISDEVICE.device_model;
-                // alert(`设备信息${os} ${model} ${userAgent}`);
-            } else {
-                $('#result').text('未找到 THISDEVICE 对象');
-            }
-                    const osName=THISDEVICE.device_brand;
-            let appStoreUrl;
-                const targetUrl = 'https://m.malink.cn/s/muQryi';
-                // Android 设备，检测手机品牌
-               // alert(`设备信息 ${osName}`);
-                if (osName === '小米') {
-                    // 小米、华为、OPPO、VIVO 设备跳转到指定链接
-                    
-                    appStoreUrl = targetUrl;
-                } else {
-                    // 其他 Android 设备默认尝试打开已安装的应用市场
-                    appStoreUrl = `market://details?id=com.xallking.smart`;
-                    try {
-                        // 尝试启动应用市场
-                        window.location.href = appStoreUrl;
-                    } catch (e) {
-                        // 若失败，跳转至 Google Play
-                        appStoreUrl = `https://play.google.com/store/apps/details?id=com.example.androidapp`;
-                    }
-                }
-                window.location.href = appStoreUrl;
-            } else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipad') > -1) {
-                // iOS 设备，跳转到 App Store
-                appStoreUrl = 'https://apps.apple.com/cn/app/id6743309629';
-                window.location.href = appStoreUrl;
-            } else {
-                // 其他设备，可提示用户在手机上访问
-                alert('请在手机上访问此页面进行 App 下载。');
-                return;
-            }
-        });
+        
         function detectOSAndBrand() {
             const userAgent = navigator.userAgent.toLowerCase();
             let appStoreUrl;
           
             const targetUrl = 'https://m.malink.cn/s/muQryi';
-            
-            const os=html(THISDEVICE.device_brand);
-             const model=html(THISDEVICE.device_model);
+        
             
             if (userAgent.indexOf('android') > -1) {
-                 alert(`设备信息${os} ${model} ${phone}`);
+               
                 // Android 设备，检测手机品牌
                 if (userAgent.indexOf('xiaomi') > -1 || userAgent.indexOf('huawei') > -1 || userAgent.indexOf('oppo') > -1 || userAgent.indexOf('vivo') > -1) {
                     // 小米、华为、OPPO、VIVO 设备跳转到指定链接
