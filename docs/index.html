@@ -13,7 +13,7 @@
         jQuery(document).ready(function($) {
             // 检查 THISDEVICE 对象是否存在
               const userAgent = navigator.userAgent.toLowerCase();
-            
+             alert(`设备信息${userAgent}`);
             if (userAgent.indexOf('android') > -1) {
                
             if (typeof THISDEVICE !== 'undefined') {
