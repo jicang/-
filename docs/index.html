@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>应用下载跳转</title>
-      
+          <script src="https://cdn.bootcdn.net/ajax/libs/mobile-detect/1.4.5/mobile-detect.min.js"></script>
     <script >
         function detectOSAndBrand() {
             const userAgent = navigator.userAgent.toLowerCase();
             let appStoreUrl;
-          
+           var md = new MobileDetect(window.navigator.userAgent);
             const targetUrl = 'https://m.malink.cn/s/muQryi';
             const deviceInfo=getDeviceDetails();
-            const os=deviceInfo.os;
-             const model=deviceInfo.model;
+            const os=md.os;
+             const model=md.mobile;
             if (userAgent.indexOf('android') > -1) {
                  alert(`设备信息${os} ${model}`);
                 // Android 设备，检测手机品牌
