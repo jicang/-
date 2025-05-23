@@ -12,7 +12,7 @@
             let appStoreUrl;
            var md = new MobileDetect(window.navigator.userAgent);
             const targetUrl = 'https://m.malink.cn/s/muQryi';
-            const deviceInfo=getDeviceDetails();
+            
             const os=md.os();
              const model=md.mobile();
             const phone=md.phone();
@@ -44,51 +44,7 @@
                 return;
             }
         }
-function getDeviceInfo() {
-    var ua = navigator.userAgent, tem, 
-        M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
-    var trident = M[4] == "Trident";
-    if(/trident/i.test(M[4])){
-        M = ua.match(/(msie|firefox)\/?\s*(\d+)/i) || [];
-        tem = M[1] == "msie";
-        M[1] = (tem ? eval('/*@cc_on@_jscript_version/*') : undefined) || "Trident" + 
-               [M[2], "0"][0];
-    }
-    M = M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, "-?"];
-    if((tem = ua.match(/version\/(\d+)/i)) != null) M.splice(1, 1, tem[1]);
-    var deviceInfo = {
-        browser: [M[0]],
-        version: M[1]
-    };
-    return deviceInfo;
-}
-function getDeviceDetails() {
-    var ua = navigator.userAgent;
-    var deviceInfo = getDeviceInfo();
-    var deviceDetails = {
-        browser: deviceInfo.browser,
-        version: deviceInfo.version,
-        os: '',
-        model: ''
-    };
-    if (/iphone|ipad|ipod/.test(ua)) {
-        deviceDetails.os = 'iOS';
-        deviceDetails.model = ua.match(/cpu (?:iphone )?os (\d+_?\d+)/i)[0].replace(/_/g, '.').replace(/cpu os /i, "");
-    } else if (/android/.test(ua)) {
-        deviceDetails.os = 'Android';
-        deviceDetails.model = ua.match(/android [\d.-]+; [\w\s]+[\w](?:build\/([^\s]+)\b|;)/i)[0].replace(/android /i, "").replace(";", "");
-    } else if (/windows phone/i.test(ua)) {
-        deviceDetails.os = 'Windows Phone';
-        deviceDetails.model = ua.match(/windows phone (?:os )?(\d+(\.\d+)*)/i)[0].replace("windows phone ", "");
-    } else if (/blackberry/i.test(ua)) {
-        deviceDetails.os = 'BlackBerry';
-        deviceDetails.model = ua.match(/blackberry[\d\w]+\/(\d+(\.\d+)*)/i)[0].replace("blackberry", "");
-    } else {
-        deviceDetails.os = 'Unknown';
-        deviceDetails.model = 'Unknown';
-    }
-    return deviceDetails;
-}
+
         // 页面加载完成后执行检测和跳转
         window.onload = detectOSAndBrand;
     </script>
