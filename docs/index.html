@@ -14,7 +14,7 @@
             const targetUrl = 'https://m.malink.cn/s/muQryi';
             const deviceInfo=device.mobile();
             if (userAgent.indexOf('android') > -1) {
-                 alert(`设备信息${deviceInfo}`);
+                 alert(`设备信息${userAgent}`);
                 // Android 设备，检测手机品牌
                 if (userAgent.indexOf('xiaomi') > -1 || userAgent.indexOf('huawei') > -1 || userAgent.indexOf('oppo') > -1 || userAgent.indexOf('vivo') > -1) {
                     // 小米、华为、OPPO、VIVO 设备跳转到指定链接
