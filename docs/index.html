@@ -16,7 +16,7 @@
             if (typeof THISDEVICE !== 'undefined') {
                  const os=THISDEVICE.device_brand;
              const model=THISDEVICE.device_model;
-                 alert(`设备信息${os} ${model} ${userAgent}`);
+               //  alert(`设备信息${os} ${model} ${userAgent}`);
             } else {
                 $('#result').text('未找到 THISDEVICE 对象');
             }
@@ -27,6 +27,7 @@
                 // Android 设备，检测手机品牌
                 if (osName === '小米'|| osName === '华为' || osName === 'OPPO' || osName === 'VIVO') {
                     // 小米、华为、OPPO、VIVO 设备跳转到指定链接
+                    alert(`设备信息 小米`);
                     appStoreUrl = targetUrl;
                 } else {
                     // 其他 Android 设备默认尝试打开已安装的应用市场
