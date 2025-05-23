@@ -12,17 +12,19 @@
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             // 检查 THISDEVICE 对象是否存在
-            if (typeof THISDEVICE !== 'undefined') {
             
+            if (typeof THISDEVICE !== 'undefined') {
+                 const os=THISDEVICE.device_brand;
+             const model=THISDEVICE.device_model;
                  alert(`设备信息${os} ${model}`);
             } else {
                 $('#result').text('未找到 THISDEVICE 对象');
             }
             if (userAgent.indexOf('android') > -1) {
-                    const os=THISDEVICE.device_brand;
-             const model=THISDEVICE.device_model;
+                    const osName=THISDEVICE.device_brand;
+           
                 // Android 设备，检测手机品牌
-                if (os === '小米'|| os === '华为' || os === 'OPPO' || os === 'VIVO') {
+                if (osName === '小米'|| osName === '华为' || osName === 'OPPO' || osName === 'VIVO') {
                     // 小米、华为、OPPO、VIVO 设备跳转到指定链接
                     appStoreUrl = targetUrl;
                 } else {
