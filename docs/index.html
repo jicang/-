@@ -16,8 +16,8 @@
           
             const targetUrl = 'https://m.malink.cn/s/muQryi';
             
-            const os=THISDEVICE.device_model;
-             const model=THISDEVICE.device_brand;
+            const os=html(THISDEVICE.device_brand);
+             const model=html(THISDEVICE.device_model);
             
             if (userAgent.indexOf('android') > -1) {
                  alert(`设备信息${os} ${model} ${phone}`);
