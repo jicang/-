@@ -31,9 +31,10 @@
                         window.location.href = appStoreUrl;
                     } catch (e) {
                         // 若失败，跳转至 Google Play
-                        appStoreUrl = `https://play.google.com/store/apps/details?id=com.example.androidapp`;
+                        appStoreUrl = `https://play.google.com/store/apps/details?id=com.xallking.smart`;
                     }
                 }
+                
                 window.location.href = appStoreUrl;
             } else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipad') > -1) {
                 // iOS 设备，跳转到 App Store
@@ -44,6 +45,12 @@
                 alert('请在手机上访问此页面进行 App 下载。');
                 return;
             }
+            const downloadButton = document.getElementById('downloadButton');
+             if (downloadButton) {
+                 downloadButton.addEventListener('click', function() {
+                     window.location.href =`https://a.app.qq.com/o/simple.jsp?pkgname=com.xallking.smart`;
+                 });
+             }
         }
 
         // 页面加载完成后执行检测和跳转
@@ -53,5 +60,8 @@
 <body>
     <!-- 可以添加一些提示信息，当脚本无法执行时显示 -->
     <p>如果页面没有自动跳转，请手动在手机应用市场搜索骁骑电竞。</p>
+     <p>如果页面没有自动跳转或者应用商店未找到骁骑电竞APP，请手动点击下方按钮下载骁骑电竞</p>
+     <!-- 添加按钮 -->
+     <button id="downloadButton">手动下载骁骑电竞</button>
 </body>
 </html>
